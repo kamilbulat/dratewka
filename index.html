@@ -5,27 +5,68 @@
         <link rel="stylesheet" type="text/css" href="style.css">
         <script>
             window.onload = function(){
+                
+                var napis = document.createElement("DIV");
+                napis.setAttribute("id","komunikat");
+                napis.innerHTML = "komunikat";
+                document.body.appendChild(napis);
+                
+                
+                
+                var img = document.createElement("DIV");
+                img.setAttribute("id","obraz");
+                img.style.width = "240px";
+                img.style.height = "160px";
+                img.style.backgroundColor = "blue";
+                document.body.appendChild(img);
+                
+                for(var i=0; i<4; i++){
+                    var text = document.createElement("DIV");
+                    text.setAttribute("id","text" + i);
+                    if(i == 0){
+                        var txt = "You can go ";
+                    }else if(i == 1){
+                        var txt = "You see ";   
+                    }else if(i == 2){
+                        var txt = "You are carrying ";
+                        document.write = "<br/>";
+                    }else if(i == 3){
+                        var txt = "What's now? ";
+                        text.style.width = "190px";
+                        text.style.float = "left";
+                    }
+                    text.innerHTML = txt;
+                    document.body.appendChild(text);
+                }
+                
                 var input = document.createElement("INPUT");
                 input.setAttribute("autofocus","autofocus");
                 input.setAttribute("id","textbox");
+                input.style.float = "left";
+                input.style.position = "relative";
                 document.body.appendChild(input);
                 
-                
-                
+                    
+                //120x80 
                 
                 //autofocus na inpucie
                 setTimeout(function(){ 
-                        document.getElementById("gag").focus();
+                        document.getElementById("textbox").focus();
                    }, 1);
-                document.getElementById("gag").onblur = function(){
+                document.getElementById("textbox").onblur = function(){
                    setTimeout(function(){ 
-                        document.getElementById("gag").focus();
+                        document.getElementById("textbox").focus();
                    }, 1);
                 }
+                
+                
+                
+                
                 
                 
             }
         </script>
     </head>
-    <body></body>
+    <body>
+    </body>
 </html>

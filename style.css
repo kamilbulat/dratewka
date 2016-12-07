@@ -3,7 +3,30 @@
     src: url("./fonts/PressStart2P.ttf");
 }
 
-input{
+body{
+    font-family: Atari;
+    color: grey;
+    background-color: rgb(50,50,50);
+}
+
+#textbox{
     font-family: Atari;
     border: none;
+    color: grey;
+    background-color: rgb(50,50,50);
+    font-size: 16px;
+    margin-top: 10px;  
+}
+
+#textbox:focus { 
+    border: none;
+}
+
+#obraz{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#text3{
+    margin-top: 10px;   
 }
