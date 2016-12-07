@@ -1,0 +1,9 @@
+@font-face{
+    font-family: Atari;
+    src: url("./fonts/PressStart2P.ttf");
+}
+
+input{
+    font-family: Atari;
+    border: none;
+}

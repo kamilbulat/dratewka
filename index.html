@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script>
+            window.onload = function(){
+                var input = document.createElement("INPUT");
+                input.setAttribute("autofocus","autofocus");
+                input.setAttribute("id","gag");
+                document.body.appendChild(input);
+                
+                
+                
+                
+                //autofocus na inpucie
+                setTimeout(function(){ 
+                        document.getElementById("gag").focus();
+                   }, 1);
+                document.getElementById("gag").onblur = function(){
+                   setTimeout(function(){ 
+                        document.getElementById("gag").focus();
+                   }, 1);
+                }
+                
+                
+            }
+        </script>
+    </head>
+    <body></body>
+</html>
