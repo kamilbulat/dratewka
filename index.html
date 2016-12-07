@@ -3,21 +3,21 @@
     <head>
         <meta charset="utf-8"/>
         <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="./js/lokacje.js"></script>
         <script>
             window.onload = function(){
                 
+                //tworzenie planszy
                 var napis = document.createElement("DIV");
                 napis.setAttribute("id","komunikat");
                 napis.innerHTML = "komunikat";
                 document.body.appendChild(napis);
                 
-                
-                
                 var img = document.createElement("DIV");
                 img.setAttribute("id","obraz");
                 img.style.width = "240px";
                 img.style.height = "160px";
-                img.style.backgroundColor = "blue";
+                img.style.backgroundColor = "grey";
                 document.body.appendChild(img);
                 
                 for(var i=0; i<4; i++){
@@ -44,10 +44,7 @@
                 input.setAttribute("id","textbox");
                 input.style.float = "left";
                 input.style.position = "relative";
-                document.body.appendChild(input);
-                
-                    
-                //120x80 
+                document.body.appendChild(input); 
                 
                 //autofocus na inpucie
                 setTimeout(function(){ 
@@ -58,6 +55,7 @@
                         document.getElementById("textbox").focus();
                    }, 1);
                 }
+                //koniec tworzenia planszy
                 
                 
                 
