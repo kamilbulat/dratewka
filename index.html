@@ -45,6 +45,10 @@
                 input.style.float = "left";
                 input.style.position = "relative";
                 document.body.appendChild(input); 
+
+                var inputbox = document.createElement("DIV");
+                inputbox.setAttribute("id","inputbox");
+                document.body.appendChild(inputbox);
                 
                 //autofocus na inpucie
                 setTimeout(function(){ 
@@ -57,7 +61,13 @@
                 }
                 //koniec tworzenia planszy
                 
-                
+                document.body.onkeydown=function(e){
+                        console.log(e.which);
+                        var text = document.getElementById("inputbox");
+                        var inp = document.getElementById("textbox");
+                        text.innerHTML = inp.value.toUpperCase();
+                    }
+
                 
                 
                 
