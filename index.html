@@ -38,34 +38,25 @@
                     text.innerHTML = txt;
                     document.body.appendChild(text);
                 }
-                
-                var input = document.createElement("INPUT");
-                input.setAttribute("autofocus","autofocus");
-                input.setAttribute("id","textbox");
-                input.style.float = "left";
-                input.style.position = "relative";
-                document.body.appendChild(input); 
 
                 var inputbox = document.createElement("DIV");
                 inputbox.setAttribute("id","inputbox");
                 document.body.appendChild(inputbox);
                 
-                //autofocus na inpucie
-                setTimeout(function(){ 
-                        document.getElementById("textbox").focus();
-                   }, 1);
-                document.getElementById("textbox").onblur = function(){
-                   setTimeout(function(){ 
-                        document.getElementById("textbox").focus();
-                   }, 1);
-                }
                 //koniec tworzenia planszy
                 
+                var txt = document.getElementById("inputbox")
                 document.body.onkeydown=function(e){
-                        console.log(e.which);
-                        var text = document.getElementById("inputbox");
-                        var inp = document.getElementById("textbox");
-                        text.innerHTML = inp.value.toUpperCase();
+                        if(e.which == 8 ){
+                            var string = txt.innerHTML.split("");
+                            string.pop();
+                            string = string.join("");
+                            //console.log(string);
+                            txt.innerHTML = string;
+                        }
+                        else{
+                            txt.innerHTML += String.fromCharCode(e.keyCode);
+                        }
                     }
 
                 
