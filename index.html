@@ -13,7 +13,7 @@
                 napis.innerHTML = "komunikat";
                 document.body.appendChild(napis);
                 
-                var img = document.createElement("DIV");
+                var img = document.createElement("IMG");
                 img.setAttribute("id","obraz");
                 img.style.width = "240px";
                 img.style.height = "160px";
@@ -46,6 +46,7 @@
                 //koniec tworzenia planszy
                 
                 var txt = document.getElementById("inputbox")
+                /*
                 document.body.onkeydown=function(e){
                         if(e.which == 8 ){
                             var string = txt.innerHTML.split("");
@@ -58,11 +59,52 @@
                             txt.innerHTML += String.fromCharCode(e.keyCode);
                         }
                     }
-
+                */
                 
+                document.body.onkeydown=function(e){
+                    if(e.which == 37){
+                        console.log("left");
+                        if(gra.y > 0){
+                            gra.y--;
+                        }
+                    }else if(e.which == 38){
+                        console.log("up");
+                        if(gra.x > 0){
+                            gra.x--;
+                        }
+                    }else if(e.which == 39){
+                        console.log("right");
+                        if(gra.y < 7){
+                            gra.y++;
+                        }
+                    }else if(e.which == 40){
+                        console.log("down");
+                        if(gra.x < 7){
+                            gra.x++;
+                        }
+                    }
+                    ladujlokacje()
+                }
                 
-                
-                
+                function ladujlokacje(){
+                    var komunikat = document.getElementById("komunikat");
+                    var obraz = document.getElementById("obraz");
+                        
+                    komunikat.innerHTML = gra.lokacja[gra.x][gra.y].opis;
+                    obraz.src = gra.lokacja[gra.x][gra.y].gfx;
+                    obraz.style.backgroundColor = gra.lokacja[gra.x][gra.y].color;
+                    
+                    var k = ""; 
+                    var go = document.getElementById("text0");
+                    for(var i=0; i<4; i++){
+                        if(gra.lokacja[gra.x][gra.y].kierunek[i] == 1){
+                            k += " " + gra.kierunek[i];        
+                        }
+                    }
+                    go.innerHTML = "You can go" + k;
+                    console.log(gra.x,gra.y)
+                }
+                ladujlokacje();
             }
         </script>
     </head>
