@@ -61,4 +61,10 @@ var gra = {
             new _Lokacja("You are in a deep forest", [0, 0, 1, 0], "gfx/27 i 67.gif", "rgb(140,253,99)", []),
         ]
     ],
+    komendy: [
+        ["NORTH","N","",""],
+        ["SOUTH","S","",""],
+        ["EAST","E","",""],
+        ["WEST","W","",""]
+    ]
 }

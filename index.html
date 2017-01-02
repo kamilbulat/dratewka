@@ -39,28 +39,64 @@
                     document.body.appendChild(text);
                 }
 
-                var inputbox = document.createElement("DIV");
+                var inputbox = document.createElement("INPUT");
                 inputbox.setAttribute("id","inputbox");
+                inputbox.setAttribute("autofocus","autofocus");
                 document.body.appendChild(inputbox);
-                
-                //koniec tworzenia planszy
-                
-                var txt = document.getElementById("inputbox")
-                /*
-                document.body.onkeydown=function(e){
-                        if(e.which == 8 ){
-                            var string = txt.innerHTML.split("");
-                            string.pop();
-                            string = string.join("");
-                            //console.log(string);
-                            txt.innerHTML = string;
+
+                setTimeout(function(){ 
+                         document.getElementById("inputbox").focus();
+                    }, 1);
+                 document.getElementById("inputbox").onblur = function(){
+                    setTimeout(function(){ 
+                         document.getElementById("inputbox").focus();
+                    }, 1);
+                 }
+                 
+                 inputbox.onkeydown=function(e){
+                    if(e.which == 13){
+                        var command = inputbox.value;
+                        command = command.toUpperCase();
+                        command = command.split(" ");
+                        console.log(command);
+                        inputbox.value = "";
+                        
+                        if(command[0] == gra.komendy[0][0] || command[0] == gra.komendy[0][1]){
+                            console.log("north " + command)
+                            if(gra.lokacja[gra.x][gra.y].kierunek[0] == 1){
+                                gra.x--;
+                                ladujlokacje();
+                            }
                         }
-                        else{
-                            txt.innerHTML += String.fromCharCode(e.keyCode);
+                        
+                        if(command[0] == gra.komendy[1][0] || command[0] == gra.komendy[1][1]){
+                            console.log("south " + command)
+                            if(gra.lokacja[gra.x][gra.y].kierunek[1] == 1){
+                                gra.x++;
+                                ladujlokacje();
+                            }
+                        }
+                        
+                        if(command[0] == gra.komendy[2][0] || command[0] == gra.komendy[2][1]){
+                            console.log("east " + command)
+                            if(gra.lokacja[gra.x][gra.y].kierunek[2] == 1){
+                                gra.y--;
+                                ladujlokacje();
+                            }
+                        }
+                        
+                        if(command[0] == gra.komendy[3][0] || command[0] == gra.komendy[3][1]){
+                            console.log("west " + command)
+                            if(gra.lokacja[gra.x][gra.y].kierunek[3] == 1){
+                                gra.y++;
+                                ladujlokacje();
+                            }
                         }
                     }
-                */
+                 }
+
                 
+                //poruszanie dla debili
                 document.body.onkeydown=function(e){
                     if(e.which == 37){
                         console.log("left");
@@ -86,6 +122,8 @@
                     ladujlokacje()
                 }
                 
+                
+                
                 function ladujlokacje(){
                     var komunikat = document.getElementById("komunikat");
                     var obraz = document.getElementById("obraz");
@@ -102,7 +140,7 @@
                         }
                     }
                     go.innerHTML = "You can go" + k;
-                    console.log(gra.x,gra.y)
+                    //console.log(gra.x,gra.y)
                 }
                 ladujlokacje();
             }
